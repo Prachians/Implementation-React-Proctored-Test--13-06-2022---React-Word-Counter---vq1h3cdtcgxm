@@ -33,7 +33,10 @@ function WordCounter() {
     <div id="container">
       <div>
         <p>Font size picker</p>
-        <input type="range" id="fontSize-input" min={font} max="36"></input>
+        <input type="range" id="fontSize-input" min="16" max="36"  onChange={(event) => {
+            setFontSize(event.target.value)
+            // console.log(event.target.value);
+        }}></input>
       </div>
 
       <div>
@@ -48,7 +51,7 @@ function WordCounter() {
         ></input>
       </div>
       <textarea
-        style={{ fontSize: { font } + "px" }}
+        style={{ fontSize: `${font}px`}}
         placeholder="Type here"
         onChange={handleKeyPress}
         maxLength={limit}
@@ -66,8 +69,8 @@ function WordCounter() {
   );
 }
 
-function App() {
+function NsProject() {
   return <WordCounter />;
 }
 
-export default App;
+export default NsProject;
